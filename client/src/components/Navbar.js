@@ -3,9 +3,9 @@ import React from 'react';
 function Navbar(props){
     return (
         <div>
-            <div className= 'header'>
-                <div className='d-flex jusity-content-between'>
-                    <h1> Savaari car Rentals</h1>
+            <div className= 'header shadow'>
+                <div className='menu'>
+                    <h1> Savaari Car Rentals</h1>
                     <button>User</button> 
                 </div>
             </div>
