@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import Navbar from '../components/Navbar'; //defaultLayout
 import {getAllCars} from '../redux/actions/carsActions';
+import { Button } from 'antd';
 
 function Home(){
     const {cars, loading} = useSelector(state => state.carsReducer)
@@ -16,7 +17,7 @@ function Home(){
     return (
         <Navbar>
             <h1>Home Page</h1>
-            <h1>The length of cars is {cars.length}</h1>
+            <Button type='primary'>Antd Button</Button>
         </Navbar>
 
     );
