@@ -37,5 +37,28 @@ h1{
 
 .header{
   padding:5px;
+}
 
+p{
+  margin:5px ;
+  text-align: left;
+  padding:0;
+}
+
+.btn1{
+  box-shadow: none !important ;
+  background-color: white !important;
+  color: maroon !important;
+  border: 1px solid #60a5a5;
+}
+
+.content{
+  min-height: 900vh;
+}
+
+/* style for car array on home page */
+.carimg{
+  height:180px;
+  width:auto;
+  border-radius: 5px;
 }
