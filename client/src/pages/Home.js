@@ -18,7 +18,6 @@ function Home(){
         <Navbar>
             <h1>Home Page</h1>
             <Button type='primary'>Antd Button</Button>
-            <h1>The length of cars is {cars.length}</h1>
         </Navbar>
 
     );
