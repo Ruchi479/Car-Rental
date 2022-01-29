@@ -1,11 +1,13 @@
-import React, {useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import Navbar from '../components/Navbar'; //defaultLayout
 import {getAllCars} from '../redux/actions/carsActions';
 import { Button, Row, Col } from 'antd';
+import Spinner from '../components/Spinner'
 
 function Home(){
-    const {cars, loading} = useSelector(state => state.carsReducer)
+    const {cars} = useSelector(state => state.carsReducer)
+    const {loading} =useSelector(state=>state.alertsReducer)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -16,6 +18,8 @@ function Home(){
 
     return (
         <Navbar>
+
+            {loading === true && (<Spinner/>)}
             <Row justify='center' gutter={16} className="mt-5">
                 
                 {cars.map(car=>{
@@ -30,7 +34,7 @@ function Home(){
                                 </div>
 
                                 <div>
-                                    <button className='btn1 mr-2'>Book Now</button>
+                                    <Button className='btn1 mr-2'>Book Now</Button>
                                 </div>
                             </div>
 
