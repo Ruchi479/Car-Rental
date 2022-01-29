@@ -1,9 +1,18 @@
-import React from 'react';
-import {useSelector} from 'react-redux'
+import React, {useState, useEffect } from 'react';
+import {useDispatch, useSelector} from 'react-redux'
 import Navbar from '../components/Navbar'; //defaultLayout
+import {getAllCars} from '../redux/actions/carsActions';
 
 function Home(){
-    const {cars} = useSelector(state => state.carsReducer)
+    const {cars, loading} = useSelector(state => state.carsReducer)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getAllCars())
+
+    }, [dispatch])
+
+
     return (
         <Navbar>
             <h1>Home Page</h1>

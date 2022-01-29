@@ -1,14 +1,14 @@
 const initialData = {
-    cars: []
+    loading: false
 };
 
-export const carsReducer = (state=initialData,  action) => {
+export const alertsReducer = (state=initialData,  action) => {
     switch(action.type)
     {
-        case 'GET_ALL_CARS': {
+        case 'LOADING' : {
             return {
                 ...state,
-                cars: action.payload
+                loading: action.payload
             }
         }
         default: return state
