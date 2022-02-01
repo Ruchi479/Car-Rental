@@ -30,6 +30,6 @@ userSchema.pre('save', async function(next) {
     return await bcrypt.compare(password, this.password);
   };
 
-const userModel = mongoose.model('users' , userSchema)
+const users = mongoose.model('users' , userSchema)
 
-module.exports = userModel;
+module.exports = users;
