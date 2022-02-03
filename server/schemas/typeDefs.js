@@ -51,6 +51,7 @@ const typeDefs = gql`
     updateUser(userName: String, password: String): User
     updateCar(_id: ID!, quantity: Int!): Car
     login(userName: String!, password: String!): Auth
+    signup(userName: String!, password: String!): Auth
   }
 `;
 
