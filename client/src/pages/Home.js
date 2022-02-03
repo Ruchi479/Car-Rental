@@ -34,7 +34,7 @@ function Home() {
 
         for(var car of cars){
 
-              if(car.bookedTimeSlots.length == 0){
+              if(car.bookedTimeSlots.length === 0){
                   temp.push(car)
               }
               else{
@@ -87,7 +87,7 @@ function Home() {
                    {totalCars.map(car=>{
                        return <Col lg={5} sm={24} xs={24}>
                             <div className="car p-2 bs1">
-                               <img src={car.image} className="carimg"/>
+                               <img src={car.image} className="carimg" alt="car"/>
 
                                <div className="car-content d-flex align-items-center justify-content-between">
 
