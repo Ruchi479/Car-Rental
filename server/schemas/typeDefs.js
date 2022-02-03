@@ -1,58 +1,60 @@
-// const { gql } = require('apollo-server-express');
+const { gql } = require('apollo-server-express');
 
-// const typeDefs = gql`
+const typeDefs = gql`
+  type Category {
+    _id: ID
+    name: String
+  }
 
-//   type Booking {
-//     _id: ID
-//     bookedTimeSlots: String
-//     totalHours: Int
-//     totalAmount: Int
-//     transactionId: String
-//     driverRequired: Boolean
-//     user: User
-//     car: Car
-//   }
+  type Product {
+    _id: ID
+    name: String
+    description: String
+    image: String
+    quantity: Int
+    price: Float
+    category: Category
+  }
 
-//   type Car {
-//     _id: ID
-//     name: String
-//     image:String
-//     capacity:Int
-//     fuelType:String
-//     bookedTimeSlots:String
-//     rentPerHour:Int
-//   }
+  type Order {
+    _id: ID
+    purchaseDate: String
+    products: [Product]
+  }
 
-//   type User {
-//     _id: ID
-//     userName: String
-//   }
+  type User {
+    _id: ID
+    firstName: String
+    lastName: String
+    email: String
+    orders: [Order]
+  }
 
-//   type Checkout {
-//     session: ID
-//   }
+  type Checkout {
+    session: ID
+  }
 
-//   type Auth {
-//     token: ID
-//     user: User
-//   }
+  type Auth {
+    token: ID
+    user: User
+  }
 
-//   type Query {
-//     booking: [Booking]
-//     booking(car: ID, name: String): [Booking]
-//     car(_id: ID!): Car
-//     user: User
-//     booking(_id: ID!): Booking
-//   }
+  type Query {
+    categories: [Category]
+    products(category: ID, name: String): [Product]
+    product(_id: ID!): Product
+    user: User
+    order(_id: ID!): Order
+    checkout(products: [ID]!): Checkout
+  }
 
-//   type Mutation {
-//     addUser(userName: String!, password: String!): Auth
-//     addBooking(car: [ID]!): Booking
-//     updateUser(userName: String, password: String): User
-//     updateCar(_id: ID!, quantity: Int!): Car
-//     login(userName: String!, password: String!): Auth
-//     signup(userName: String!, password: String!): Auth
-//   }
-// `;
+  type Mutation {
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    addOrder(products: [ID]!): Order
+    updateUser(firstName: String, lastName: String, email: String, password: String): User
+    updateProduct(_id: ID!, quantity: Int!): Product
+    login(email: String!, password: String!): Auth
+  }
+`;
 
-// module.exports = typeDefs;
+module.exports = typeDefs;

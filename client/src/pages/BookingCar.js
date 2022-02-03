@@ -24,10 +24,10 @@ function BookingCar({ match }) {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    if (cars.length == 0) {
+    if (cars.length === 0) {
       dispatch(getAllCars());
     } else {
-      setcar(cars.find((o) => o._id == match.params.carid));
+      setcar(cars.find((o) => o._id === match.params.carid));
     }
   }, [cars]);
 
@@ -131,7 +131,7 @@ function BookingCar({ match }) {
                 token={onToken}
                 currency='inr'
                 amount={totalAmount * 100}
-                stripeKey="pk_test_51IYnC0SIR2AbPxU0TMStZwFUoaDZle9yXVygpVIzg36LdpO8aSG8B9j2C0AikiQw2YyCI8n4faFYQI5uG3Nk5EGQ00lCfjXYvZ"
+                stripeKey="pk_test_51KOyS1SJzXvDCr1owqAqV7PNYjCAGMXuOPIkvB5yZ58itaVXa29elC6OcbK21nIGRdyQ3hq8E3dO0A5HI2BFcPbH000r4DxIJ9"
               >
                   <button className="btn1">
                 Book Now
